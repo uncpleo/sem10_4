@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { EmployeeProvider } from './context/EmployeeContext';
+import EmployeeForm from './components/EmployeeForm';
+import EmployeeList from './components/EmployeeList';
 
 function App() {
+  const [employeeToEdit, setEmployeeToEdit] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <EmployeeProvider>
+      <div className="App">
+        <header className="App-header">
+          <h1 className='titulo'>Gestión de Empleados</h1>
+          <EmployeeForm employeeToEdit={employeeToEdit} />
+          <EmployeeList setEmployeeToEdit={setEmployeeToEdit} />
+        </header>
+      </div>
+    </EmployeeProvider>
   );
 }
 

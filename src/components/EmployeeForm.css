@@ -1,0 +1,13 @@
+input {
+    padding: 10px;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.otro{
+    color: aliceblue;
+}
