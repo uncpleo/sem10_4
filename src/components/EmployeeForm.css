@@ -1,4 +1,4 @@
-input {
+input{
     padding: 10px;
     border-radius: 4px;
 }
@@ -8,6 +8,22 @@ button {
     border-radius: 4px;
 }
 
-.otro{
+.crd{
+    height: 50%;
+    width: 600px;
+    margin-top: 5%;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    font-size: medium;
+}
+
+.titulo_T{
     color: aliceblue;
+    background-color: rgb(81, 81, 81);
+}
+
+.contenido_T{
+    background-color: rgb(224, 236, 255);
 }

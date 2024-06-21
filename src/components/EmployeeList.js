@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { EmployeeContext } from '../context/EmployeeContext';
 import EmployeeCard from './EmployeeCard';
+import './EmployeeList.css';
 
 const EmployeeList = ({ setEmployeeToEdit }) => {
   const { state, dispatch } = useContext(EmployeeContext);
@@ -21,37 +22,49 @@ const EmployeeList = ({ setEmployeeToEdit }) => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Buscar por nombre"
-        value={filter}
-        onChange={(e) => setFilter(e.target.value)}
-      />
-      <div>
-        {currentEmployees.map(employee => (
-          <div key={employee.id}>
-            <h3 className='otro'>{employee.name}</h3>
-            <p className='otro'>{employee.address}</p>
-            <p className='otro'>{employee.city}</p>
-            <button onClick={() => setEmployeeToEdit(employee)}>Editar</button>
-            <button onClick={() => dispatch({ type: 'DELETE_EMPLOYEE', payload: employee.id })}>
-              Eliminar
-            </button>
-            <button onClick={() => setSelectedEmployee(employee)}>Mostrar</button>
-          </div>
-        ))}
+      <div className='busqueda'>
+        <label>Buscar
+        <input
+          type="text"
+          placeholder="Buscar por nombre"
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        />
+        </label>
       </div>
+      <table className='crd'>
+        <tr className='titulo_T'>
+          <th>Nombre</th>
+          <th>Dirección</th>
+          <th>Ciudad</th>
+          <th>Opciones</th>
+        </tr>
+        {currentEmployees.map(employee => (
+        <tr className='contenido_T' key={employee.id}>
+          <td>{employee.name}</td>
+          <td><p>{employee.address}</p></td>
+          <td><p>{employee.city}</p></td>
+          <td><button onClick={() => setEmployeeToEdit(employee)}>Editar</button>
+          <button onClick={() => dispatch({ type: 'DELETE_EMPLOYEE', payload: employee.id })}>
+            Eliminar
+          </button>
+          <button onClick={() => setSelectedEmployee(employee)}>Mostrar</button></td>
+        </tr>
+      ))}
+      </table>
       <Pagination
         employeesPerPage={employeesPerPage}
         totalEmployees={filteredEmployees.length}
         paginate={paginate}
       />
+      <div className='sad'>
       {selectedEmployee && (
         <EmployeeCard
           employee={selectedEmployee}
           closeCard={() => setSelectedEmployee(null)}
         />
       )}
+      </div>
     </div>
   );
 };

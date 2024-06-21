@@ -1,3 +1,16 @@
 .otro{
     background-color: aliceblue;
 }
+
+.busqueda{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    font-size: medium;
+}
+
+.sad{
+    display: flex;
+    justify-content: center;
+}

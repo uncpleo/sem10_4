@@ -1,0 +1,7 @@
+.employee-card{
+    background-color: rgb(224, 236, 255);
+    border-radius: 10px;
+    font-size: small;
+    width: 60%;
+    color: rgb(81, 81, 81);
+}
